@@ -1,0 +1,25 @@
+/*Race condition example: let’s say we are looking at a bank account*/
+
+void deposit(Account *acnt) { 
+lock(acnt->guard); 
+++ acnt->balance; 
+unlock(acnt->guard); 
+}
+
+int balance(Account *acnt) { 
+int b; lock(acnt->guard); 
+b = acnt->balance; 
+unlock(acnt->guard); return b; 
+} 
+void withdraw(Account *acnt) { 
+lock(acnt->guard); 
+-- acnt->balance; 
+unlock(acnt->guard);
+} 
+int sum(Account *a1, Account *a2) {
+	return balance(a1) + balance(a2);
+}
+void transfer(Account *a1, Account *a2) {
+	withdraw(a1);
+	deposit(a2);
+}
