@@ -1,0 +1,15 @@
+/*memcheck*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int main()
+{
+	char *s;
+	s = (char *) malloc(8);
+	s = (char *) malloc(6);
+	free(s);
+	s = (char *) malloc(10);
+	return 0;
