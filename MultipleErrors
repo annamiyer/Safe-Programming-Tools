@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 
 /*Using uninitialized variables:*/
 int main(void) { 
