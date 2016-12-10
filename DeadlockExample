@@ -1,5 +1,9 @@
 /*Example of deadlock:*/
 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 int sum(Account *a1, Account *a2) { 
 int s; 
 lock(a1->guard); 
