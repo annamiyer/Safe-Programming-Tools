@@ -1,0 +1,12 @@
+/*Example of deadlock:*/
+
+int sum(Account *a1, Account *a2) { 
+int s; 
+lock(a1->guard); 
+lock(a2->guard); 
+s = a1->balance; 
+s += a2->balance; 
+unlock(a2->guard); 
+unlock(a1->guard); 
+return s 
+} 
