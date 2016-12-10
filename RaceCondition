@@ -1,5 +1,10 @@
 /*Race condition example: let’s say we are looking at a bank account*/
 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
 void deposit(Account *acnt) { 
 lock(acnt->guard); 
 ++ acnt->balance; 
